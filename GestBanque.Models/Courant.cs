@@ -2,21 +2,79 @@
 {
     public class Courant
     {
-        public string numero;
-        public double solde;
-        public double ligneDeCredit;
-        public Personne titulaire;
+        private string _numero;
+        private double _solde;
+        private double _ligneDeCredit;
+        private Personne _titulaire;
+
+        public string Numero
+        {
+            get
+            {
+                return _numero;
+            }
+
+            set
+            {
+                _numero = value;
+            }
+        }
+
+        public double Solde
+        {
+            get
+            {
+                return _solde;
+            }
+
+            private set
+            {
+                _solde = value;
+            }
+        }
+
+        public double LigneDeCredit
+        {
+            get
+            {
+                return _ligneDeCredit;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("Valeur incorrecte pour la Ligne de crédit");
+                    return;
+                }
+
+                _ligneDeCredit = value;
+            }
+        }
+
+        public Personne Titulaire
+        {
+            get
+            {
+                return _titulaire;
+            }
+
+            set
+            {
+                _titulaire = value;
+            }
+        }
 
         public void Depot(double montant)
         {
             Console.WriteLine($"Dépot de {montant} demandé...");
-            if(montant <= 0)
+            if (montant <= 0)
             {
                 Console.WriteLine("montant invalide");
                 return;
             }
-            
-            solde = solde + montant;            
+
+            Solde = Solde + montant;
         }
 
         public void Retrait(double montant)
@@ -28,13 +86,13 @@
                 return;
             }
 
-            if(solde - montant < -ligneDeCredit)
+            if (Solde - montant < -LigneDeCredit)
             {
                 Console.WriteLine("Solde insuffisant");
                 return;
             }
-            
-            solde = solde - montant;            
+
+            Solde = Solde - montant;
         }
     }
 }

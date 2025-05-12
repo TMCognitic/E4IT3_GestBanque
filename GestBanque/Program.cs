@@ -1,15 +1,20 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GestBanque.Models;
 
-Personne johnDoe = new Personne();
-johnDoe.nom = "Doe";
-johnDoe.prenom = "John";
-johnDoe.anniversaire = new DateTime(1970, 01, 01);
+Personne johnDoe = new Personne()
+{
+    Nom = "Doe",
+    Prenom = "John",
+    Anniversaire = new DateTime(1970, 01, 01)
+};
 
-Courant courant = new Courant();
-courant.numero = "Test001";
-courant.titulaire = johnDoe;
-courant.ligneDeCredit = 500;
+
+Courant courant = new Courant()
+{
+    Numero = "Test001",
+    Titulaire = johnDoe,
+    LigneDeCredit = 500
+};
 
 courant.Depot(-500);
 Console.WriteLine($"Nouveau solde : {courant.solde}");

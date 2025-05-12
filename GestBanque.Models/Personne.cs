@@ -2,8 +2,8 @@
 {
     public class Personne
     {
-        public string nom;
-        public string prenom;
-        public DateTime anniversaire;
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public DateTime Anniversaire { get; set; }
     }
 }
