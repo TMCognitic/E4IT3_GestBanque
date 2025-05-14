@@ -22,6 +22,7 @@ Epargne epargne = new Epargne()
     Titulaire = johnDoe
 };
 
+List<Compte> _comptes = new List<Compte>() { courant, epargne };
 
 Console.WriteLine($"Compte numéro '{courant.Numero}' de {courant.Titulaire.Prenom} {courant.Titulaire.Nom}");
 courant.Depot(-500);
@@ -45,3 +46,20 @@ epargne.Retrait(100);
 Console.WriteLine($"Solde : {epargne.Solde}");
 epargne.Retrait(500);
 Console.WriteLine($"Solde : {epargne.Solde}");
+
+Console.WriteLine();
+foreach (Compte compte in _comptes)
+{
+    Console.WriteLine($"Compte numéro '{compte.Numero}' de {compte.Titulaire.Prenom} {compte.Titulaire.Nom}");
+    Console.Write($"Solde : {compte.Solde}");
+
+    switch (compte)
+    {
+        case Courant c:
+            Console.WriteLine($" - Ligne de crédit : {c.LigneDeCredit}");
+            break;
+        case Epargne e:
+            Console.WriteLine($" - Date de dernier retrait : {e.DernierRetrait:dd-MM-yyyy}");
+            break;
+    }
+}
