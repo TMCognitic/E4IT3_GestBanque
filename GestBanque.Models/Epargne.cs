@@ -16,6 +16,12 @@
                 _dernierRetrait = value;
             }
         }
+
+        public override double CalculInteret()
+        {
+            return Solde * .045;
+        }
+
         public override void Retrait(double montant)
         {
             double oldSolde = Solde;

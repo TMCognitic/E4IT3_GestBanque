@@ -52,6 +52,7 @@ foreach (Compte compte in _comptes)
 {
     Console.WriteLine($"Compte numéro '{compte.Numero}' de {compte.Titulaire.Prenom} {compte.Titulaire.Nom}");
     Console.Write($"Solde : {compte.Solde}");
+    Console.Write($" - Intérêts : {compte.CalculInteret()}");
 
     switch (compte)
     {

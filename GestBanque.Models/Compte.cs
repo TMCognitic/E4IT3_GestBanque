@@ -1,6 +1,7 @@
-﻿namespace GestBanque.Models
+﻿
+namespace GestBanque.Models
 {
-    public class Compte
+    public abstract class Compte
     {
         private string _numero;
         private double _solde;
@@ -79,5 +80,7 @@
 
             Solde = Solde - montant;
         }
+
+        public abstract double CalculInteret();
     }
 }
