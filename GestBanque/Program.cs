@@ -9,18 +9,9 @@ Personne johnDoe = new Personne()
 };
 
 
-Courant courant = new Courant()
-{
-    Numero = "Test001",
-    Titulaire = johnDoe,
-    LigneDeCredit = 500
-};
+Courant courant = new Courant("Test001", 500, johnDoe);
 
-Epargne epargne = new Epargne()
-{
-    Numero = "Test002",
-    Titulaire = johnDoe
-};
+Epargne epargne = new Epargne("Test002", johnDoe);
 
 List<Compte> _comptes = new List<Compte>() { courant, epargne };
 
